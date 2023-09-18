@@ -1,0 +1,38 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listar Productos</title>
+    <link rel="stylesheet" href="{% static 'css/listas.css' %}">
+</head>
+<body>
+    {% include 'index.html' %}
+    <h1>Listado de Productos</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Código de Barras</th>
+            <th>Precio</th>
+            <th>Fecha de Caducidad</th>
+            <th>Cantidad en Inventario</th>
+            <th>Tipo de Producto</th>
+        </tr>
+        {% for producto in productos %}
+            <tr>
+                <td>{{ producto.id }}</td>
+                <td>{{ producto.nombre }}</td>
+                <td>{{ producto.codigo_barras }}</td>
+                <td>{{ producto.precio }}</td>
+                <td>{{ producto.fecha_caducidad }}</td>
+                <td>{{ producto.cantidad_inventario }}</td>
+                <td>{{ producto.tipo.nombre }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+{% endblock content %}
+
+

@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registrar Producto</title>
+    <link rel="stylesheet" href="{% static 'css/listas.css' %}">
+</head>
+
+<body>
+    {% include 'index.html' %}
+    <h1>Registrar Producto</h1>
+    <form method="post">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th>Nombre:</th>
+                <td><input type="text" name="nombre" required></td>
+            </tr>
+            <tr>
+                <th>Codigo barras:</th>
+                <td><input type="number" name="codigo_barras" required></td>
+            </tr>
+            <tr>
+                <th>Precio:</th>
+                <td><input type="number" name="precio" step="0.1" required></td>
+            </tr>
+            <tr>
+                <th>Fecha caducidad:</th>
+                <td><input type="date" name="fecha_caducidad" required></td>
+            </tr>
+            <tr>
+                <th>Cantidad inventario:</th>
+                <td><input type="number" name="cantidad_inventario" required></td>
+            </tr>
+            <tr>
+                <th>Tipo:</th>
+                <td>
+                    <select name="tipo" required id="tipo_select">
+                        <option value="" disabled selected>Seleccione un tipo</option>
+                        {% for tipo in tipos %}
+                            <option value="{{ tipo.id }}">{{ tipo.nombre }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <div class="Boton">
+        <button type="submit">Registrar</button>
+        </div>
+    </form>
+{% block content %}
+
+{% endblock content %}
+</body>
+</html>

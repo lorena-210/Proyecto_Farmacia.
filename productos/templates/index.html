@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Farmacia</title>
+</head>
+<body>
+    
+    <div id="navegador">
+        <img src="{% static 'images/Logo.png'%}" alt="Logo">
+        <nav>
+            <ul>
+                <li>
+                    <a id="texto" href="{% url 'listar_productos' %}">Listas Productos</a>
+                </li>
+                <li>
+                    <a id="texto" href="{% url 'registrar_producto' %}">Registrar Productos</a>
+                </li>
+                <li>
+                    <a id="texto" href="{% url 'agregar_tipo_producto' %}">Agregar Tipos</a>
+                </li>
+                <li>
+                    <a id="texto" href="{% url 'mostrar_tipos_productos' %}">Mostrar Tipos</a>
+                </li> 
+            </ul>
+        </nav>
+    </div>
+
+{% block content %}
+
+{%endblock%}
+</body>
+</html>

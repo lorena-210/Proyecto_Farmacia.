@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tipos de Productos</title>
+    <link rel="stylesheet" href="{% static 'css/tablas.css' %}">
+</head>
+<body>
+    {% include 'index.html' %}
+    <h1>Tipos de Productos</h1>
+    <div class="container">
+        <table>
+            {% for tipo in tipos_productos %}
+                <tr>
+                    <td>{{ tipo.nombre }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+
+    
+</body>
+</html>
+{% block content %}
+
+{% endblock %}
